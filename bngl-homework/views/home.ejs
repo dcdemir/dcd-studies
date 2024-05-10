@@ -1,0 +1,181 @@
+
+<%- include("partials/header"); -%>
+
+<script>
+
+  $(document).ready(function(){
+  $('.carousel').each(function(){
+    $(this).find('.carousel-item').eq(0).addClass('active');
+  });
+});
+    
+</script>
+
+<section class="mt-5">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">   
+              <% posts.find(function(element,index) { %>
+                
+           
+               <% if (index < 4) { %> 
+                <div style="position: relative;" class="carousel-item" data-bs-interval="2500">
+        
+                <a class="article-link"  href="posts/<%=element.id %>"><img src="<%=element._embedded['wp:featuredmedia'][0].source_url%>" class="d-block w-100" alt="..."></a>
+ 
+                <div class="carousel-caption d-none d-md-block">
+                  <span>
+                    <a class="tag-style carousel-category"><%= element.categories %></a>
+                  </span>
+                  <a class="link-dark link-style" href="posts/<%=element.id %>"><h6 class="caraousel-title text-light"><%= element.title.rendered %></h6></a>
+                  <span class="float-start">
+                    <i class="fa-solid fa-calendar link-light"></i>
+                    <time class="text-light"><%= element.date %></time>
+                    </span>
+                    <span>
+                      <i class="fa-solid fa-pen text-light "></i>
+                      <a class="link-light text-decoration-none "   href="/"><%= element._embedded['author'][0].name %></a> 
+                    </span>
+                    <span class="float-end">
+                    <i class="fa-solid fa-comment link-light"></i>
+                    <a class="link-light text-decoration-none" href="#">number</a>
+                  </span> 
+                </div>
+              </div>
+              <% } %>
+              <%  }) %>  
+              
+            </div>
+            <button  class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span  class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>  
+        </div>
+
+          <div class="col-md-3 text-center">
+            <% posts.find(function(element,index) { %>
+              <% if (index > 4 && index < 6) { %> 
+                <div class="card one-article">
+            
+                  <a  href="posts/<%= element.id %>"><img style="width: 100%; height: 12rem;" class="img-fluid" src="<%= element._embedded['wp:featuredmedia'][0].source_url %>" class="card-img-top" alt="..."></a>
+        
+                  <div style="height: 10em;" class="card-body">
+                    <span class="category-style">
+                    <a class="tag-style text-center"><%= element.categories %></a> 
+                    </span>
+                    <span class="author-style">
+                      <i class="fa-solid fa-pen text-dark"></i>
+                      <a class="link-dark text-decoration-none text-dark" href="/users/#"><%= element._embedded['author'][0].name %></a> 
+                      </span>
+                    <a class="link-dark link-style" href="posts/<%= element.id %>"><p  class="card-text"><%= element.title.rendered %></p></a>
+                    <div class="span-style">
+                    <span>
+                    <i class="fa-solid fa-calendar link-dark"></i>
+                    <time><%= element.date %></time>
+                    </span>
+                    </div>
+                    <div class="span-style-second">
+                    <span class="float-end">
+                    <i class="fa-solid fa-comment link-dark"></i>
+                    <a class="link-dark text-decoration-none" href="#">1</a>
+                  </span>  
+                </div>   
+                </div>  
+              </div>
+              <% } %>
+              <% }) %>
+          </div>
+          <div class="col-md-3 text-center">
+            <% posts.find(function(element,index) { %>
+              <% if (index > 5 && index < 7) { %>
+           
+                <div class="card one-article">
+            
+                  <a  href="posts/<%= element.id %>"><img style="width: 100%; height: 12rem;" class="img-fluid" src="<%= element._embedded['wp:featuredmedia'][0].source_url %>" class="card-img-top" alt="..."></a>
+        
+                  <div style="height: 10em;" class="card-body">
+                    <span class="category-style">
+                    <a class="tag-style text-center"><%= element.categories %></a> 
+                    </span>
+                    <span class="author-style">
+                      <i class="fa-solid fa-pen text-dark"></i>
+                      <a class="link-dark text-decoration-none text-dark" href="/users/#"><%= element._embedded['author'][0].name %></a> 
+                      </span>
+                    <a class="link-dark link-style" href="posts/<%= element.id %>"><p class="card-text"><%= element.title.rendered %></p></a>
+                    <div class="span-style">
+                    <span>
+                    <i class="fa-solid fa-calendar link-dark"></i>
+                    <time><%= element.date %></time>
+                    </span>
+                    </div>
+                    <div class="span-style-second">
+                    <span class="float-end">
+                    <i class="fa-solid fa-comment link-dark"></i>
+                    <a class="link-dark text-decoration-none" href="#">1</a>
+                  </span>  
+                </div>   
+                </div>  
+              </div>
+              <% } %>
+              <% }) %>
+          </div>
+      </div>
+</section>
+
+<section>
+
+<div class="container">
+  <div class="row">
+
+<% posts.find(function(element,index) { %>
+      <% if (index > 8) { %>
+
+      <div class="col-md-4 text-center">
+        <div class="card one-article">
+            
+          <a  href="posts/<%= element.id %>"><img style="width: 100%; height: 12rem;" class="img-fluid" src="<%= element._embedded['wp:featuredmedia'][0].source_url %>" class="card-img-top" alt="..."></a>
+
+          <div style="height: 10rem;" class="card-body">
+            <span class="category-style">
+            <a class="tag-style text-center"><%= element.categories %></a> 
+            </span>
+          
+            <span class="author-style">
+              <i class="fa-solid fa-pen text-dark"></i>
+              <a class="link-dark text-decoration-none text-dark" href="/users/#"><%= element._embedded['author'][0].name %></a> 
+            </span>
+          
+            <a class="link-dark link-style" href="posts/<%= element.id %>"><p class="card-text"><%= element.title.rendered %></p></a>
+            <div class="span-style">
+            <span>
+            <i class="fa-solid fa-calendar link-dark"></i>
+            <time><%= element.date %></time>
+            </span>
+            </div>
+            <div class="span-style-second">
+            <span class="float-end">
+            <i class="fa-solid fa-comment link-dark"></i>
+            <a class="link-dark text-decoration-none" href="#">1</a>
+          </span>  
+        </div>   
+        </div>  
+      </div>
+        </div>
+
+        <% } %>
+      <%  }) %>
+
+    </div>
+</div>
+</section>
+
+
+
+<%- include("partials/footer"); -%>

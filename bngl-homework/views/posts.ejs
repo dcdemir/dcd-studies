@@ -1,0 +1,12 @@
+<%- include("partials/header"); -%>
+
+<section>
+    <div class="container">
+        <h1 style="text-align: center;"> <%= articles.title.rendered %> </h1>
+        <%= JSON.stringify(articles.content.rendered) %>
+    </div>
+</section>
+   
+    
+
+<%- include("partials/footer"); -%>

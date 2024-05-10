@@ -1,0 +1,48 @@
+<%- include("partials/header"); -%>
+
+
+<section>
+
+  <div class="container">
+    <div class="row">
+      
+  <% posts.find(function(element) { %>
+   
+        <div class="col-md-3">
+            <div class="card one-article">
+              
+              <a  href="posts/<%= element.id %>"><img style="width: 100%; height: 12rem;" class="img-fluid" src="<%= element._embedded['wp:featuredmedia'][0].source_url %>" class="card-img-top" alt="..."></a>
+    
+              <div style="height: 10em;" class="card-body">
+                <span class="category-style">
+                <a class="tag-style text-center"><%= element.categories %></a> 
+                </span>
+                <a class="link-dark link-style" href="posts/<%= element.id %>"><p class="card-text"><%= element.title.rendered %></p></a>
+                <span class="author-style">
+                <i class="fa-solid fa-pen text-light"></i>
+                <a class="link-dark text-decoration-none text-light" href="/"><%= element._embedded['author'][0].name %></a> 
+                </span>
+                <div class="span-style">
+                <span>
+                <i class="fa-solid fa-calendar link-dark"></i>
+                <time><%= element.date %></time>
+                </span>
+                </div>
+                <div class="span-style-second">
+                <span class="float-end">
+                <i class="fa-solid fa-comment link-dark"></i>
+                <a class="link-dark text-decoration-none" href="#">1</a>
+              </span>  
+            </div>   
+            </div>  
+          </div>
+          </div>
+        
+        <%  }) %>
+      </div>
+  </div>
+  </section>
+
+
+
+<%- include("partials/footer"); -%>
